@@ -30,7 +30,7 @@ def get_random_color():
     return colors[num]
     
 # Créer un graphe d'après le résultat des réactions du sondage.
-async def get_channel_poll(question, reactions, channel_name):
+async def get_channel_poll(question, reactions, channel_name, guild_name):
     dico = {"✅":"Oui", "❌":"Non", "1⃣":"1", "2⃣":"2", "3⃣":"3", "4⃣":"4", "5⃣":"5"}
     
     choice = []
@@ -58,7 +58,7 @@ async def get_channel_poll(question, reactions, channel_name):
     else:
         plt.title(f"Poll results : {question}\nTotal : {total_votes} votes", ha='center')
         
-    plt.savefig(f"graph/{channel_name}_poll.png")
+    plt.savefig(f"graph/{guild_name}/{channel_name}_poll.png")
     
     # Fermeture du plot.
     plt.close()
@@ -116,7 +116,7 @@ async def get_channel_token(guild, channels, users) :
     plt.bar(name, average, color=get_random_color())
     
     # Sauvegarde et fermeture du plot.
-    plt.savefig('graph/MPD.png')
+    plt.savefig(f"graph/{guild.name}/MPD.png")
     plt.close()
     
     
@@ -162,7 +162,7 @@ async def get_channel_question_answer(guild, channels, users):
     plt.bar(sent, value, color=get_random_color())
     
     # Sauvegarde et fermeture du plot.
-    plt.savefig('graph/MPD.png')
+    plt.savefig(f"graph/{guild.name}/MPD.png")
     plt.close()
                 
 # Créer un camembert au format png du % de messages et du % de gifs, par utilisateur ou non sur le serveur en paramètre et les channels en paramètre.
@@ -229,7 +229,7 @@ async def get_channel_item_vs_item(guild, channels, users="", mvg=False, gif=Fal
     elif len(channels) > 1 and mvg == False :
         plt.title(f"{m_or_g} vs. : All Channels \n See mentions - Total : {total_messages}", ha='center')
     
-    plt.savefig('graph/MPD.png')
+    plt.savefig(f"graph/{guild.name}/MPD.png")
     
     # Fermeture du plot.
     plt.close()
@@ -282,7 +282,7 @@ async def get_channel_message_stats_roles(guild, channels, gif=False):
     else : 
         plt.title(f"{m_or_g} % by role : All Channels \n Total : {total_messages}", ha='center')
     
-    plt.savefig('graph/MPD.png')
+    plt.savefig(f"graph/{guild.name}/MPD.png")
     
     # Fermeture du plot.
     plt.close()
@@ -354,7 +354,7 @@ async def get_channel_message_stats(guild, channels, users, gif=False):
     
     #Génération et sauvegarde du plot sur le disque.
     plt.plot(date, message, color=get_random_color())  
-    plt.savefig(f"graph/MPD.png")
+    plt.savefig(f"graph/{guild.name}/MPD.png")
     
     #Fermer le plot pour ne pas générer une seconde courbe et remplacer les données.
     plt.close() 

@@ -49,7 +49,7 @@ async def on_ready():
 # Commande principale (!stats)
 @bot.group(name="stats", invoke_without_command=True) 
 async def stats(ctx):
-    await ctx.send("Utilisation : !stats <global>? <message|gif|q&a|token> <one|everyone|+|role*|vs> <@mention>+")
+    await ctx.send("Utilisation : !stats <global|help>? <message|gif|q&a|token|vs*> <one|everyone|+|role*|vs*> <@mention>*")
 
 # Nouveau sous-groupe message. Messages par date.
 @stats.group(name="message", invoke_without_command=True)
@@ -63,7 +63,7 @@ async def message_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_message_stats(ctx.guild, [ctx.message.channel], [user])
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -73,14 +73,14 @@ async def message_one(ctx, arg1):
 @stats_message.command(name="everyone")
 async def message_everyone(ctx):
     await get_channel_message_stats(ctx.guild, [ctx.message.channel], ctx.guild.members)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
 
 # Sous-groupe message. Stats cumulées pour le channel contextuel des personnes mentionnées.
 @stats_message.command(name="+")
 async def message_plus(ctx, arg1):
     if arg1[0:3] == "<@!" : 
         await get_channel_message_stats(ctx.guild, [ctx.message.channel], ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
 
@@ -88,14 +88,14 @@ async def message_plus(ctx, arg1):
 @stats_message.command(name="role")
 async def message_role(ctx):
     await get_channel_message_stats_roles(ctx.guild, [ctx.message.channel])
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Sous-groupe message. Stats en camembert des messages des personnes en mentions pour le channel contextuels.
 @stats_message.command(name="vs")
 async def message_vs(ctx):
     if len(ctx.message.mentions) > 1 :
         await get_channel_item_vs_item(ctx.guild, [ctx.message.channel], users=ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
     
@@ -111,7 +111,7 @@ async def gif_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_message_stats(ctx.guild, [ctx.message.channel], [user], True)
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -121,14 +121,14 @@ async def gif_one(ctx, arg1):
 @stats_gif.command(name="everyone")
 async def gif_everyone(ctx):
     await get_channel_message_stats(ctx.guild, [ctx.message.channel], ctx.guild.members, True)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
 
 # Sous-groupe gif. Stats cumulées pour le channel contextuel des personnes mentionnées.
 @stats_gif.command(name="+")
 async def gif_plus(ctx, arg1):
     if arg1[0:3] == "<@!" : 
         await get_channel_message_stats(ctx.guild, [ctx.message.channel], ctx.message.mentions, True)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
 
@@ -136,14 +136,14 @@ async def gif_plus(ctx, arg1):
 @stats_gif.command(name="role")
 async def gif_role(ctx):
     await get_channel_message_stats_roles(ctx.guild, [ctx.message.channel], True)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Sous-groupe gif. Stats en camembert des gifs des personnes en mentions pour le channel contextuels.
 @stats_gif.command(name="vs")
 async def gif_vs(ctx):
     if len(ctx.message.mentions) > 1 :
         await get_channel_item_vs_item(ctx.guild, [ctx.message.channel], users=ctx.message.mentions, gif=True)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
 
@@ -151,7 +151,7 @@ async def gif_vs(ctx):
 @stats.command(name="vs", invoke_without_command=True)
 async def stats_vs(ctx):
     await get_channel_item_vs_item(ctx.guild, [ctx.message.channel], mvg=True)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Nouveau sous-groupe q&a. Questions et réponses.
 @stats.group(name="q&a", invoke_without_command=True)
@@ -165,7 +165,7 @@ async def qa_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_question_answer(ctx.guild, [ctx.message.channel], [user])
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -175,14 +175,14 @@ async def qa_one(ctx, arg1):
 @stats_qa.command(name="everyone")
 async def qa_everyone(ctx):
     await get_channel_question_answer(ctx.guild, [ctx.message.channel], ctx.guild.members)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Sous-groupe q&a. Questions et réponses cumulées pour les personnes mentionnées pour le channel contextuel.
 @stats_qa.command(name="+")
 async def qa_plus(ctx, arg1):
     if arg1[0:3] == "<@!" : 
         await get_channel_question_answer(ctx.guild, [ctx.message.channel], ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
 
@@ -198,7 +198,7 @@ async def token_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_token(ctx.guild, [ctx.message.channel], [user])
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -208,14 +208,14 @@ async def token_one(ctx, arg1):
 @stats_token.command(name="everyone")
 async def token_everyone(ctx):
     await get_channel_token(ctx.guild, [ctx.message.channel], ctx.guild.members)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Sous-groupe token. Comparaison de la moyenne de token pour les personnes mentionnées pour le channel contextuel.
 @stats_token.command(name="vs")
 async def token_vs(ctx, arg1):
     if arg1[0:3] == "<@!" : 
         await get_channel_token(ctx.guild, [ctx.message.channel], ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
         
@@ -227,10 +227,14 @@ async def poll(ctx, *args) :
         await ctx.send("""Utilisation : !stats poll temps_en_secondes "question" "choix1", "choix2", "choix3" ...""")
         return
     
+    if int(args[0]) > 180 :
+        await ctx.send("Le temps maximal est de trois minutes.")
+        return
+        
     try:
         int(args[0])
     except:
-        await ctx.send("Utilisation : !stats poll temps question choix1, choix2, choix3...")
+        await ctx.send("Utilisation : !stats poll temps question choix1, choix2, choix3...\n Le temps maximum est de trois minutes.")
         return  
     
     if len(args) > 7 :
@@ -240,7 +244,7 @@ async def poll(ctx, *args) :
         await ctx.send("Un sondage doit au moins poser une question")
         return
     
-    if len(args) < 4 :
+    if len(args) == 2 :
         reactions = ["✅", "❌"]
     else :
         reactions = ["1⃣", "2⃣", "3⃣", "4⃣", "5⃣"]
@@ -271,8 +275,8 @@ async def poll(ctx, *args) :
     
     put_reaction = await ctx.fetch_message(put_reaction.id)
     
-    await get_channel_poll(args[1], put_reaction.reactions, ctx.channel.name)
-    await ctx.send(file=discord.File(f"graph/{ctx.channel.name}_poll.png"))
+    await get_channel_poll(args[1], put_reaction.reactions, ctx.channel.name, ctx.guild.name)
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/{ctx.channel.name}_poll.png"))
     
 #########################################
 
@@ -293,7 +297,7 @@ async def global_message_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_message_stats(ctx.guild, ctx.guild.text_channels, [user])
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -303,14 +307,14 @@ async def global_message_one(ctx, arg1):
 @global_message.command(name="everyone")
 async def global_message_everyone(ctx):
     await get_channel_message_stats(ctx.guild, ctx.guild.text_channels, ctx.guild.members)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
 
 # Sous-groupe global_message. Stats cumulées pour tous les channels des personnes mentionnées.
 @global_message.command(name="+")
 async def global_message_plus(ctx, arg1):  
     if arg1[0:3] == "<@!" :
         await get_channel_message_stats(ctx.guild, ctx.guild.text_channels, ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
         
@@ -318,14 +322,14 @@ async def global_message_plus(ctx, arg1):
 @global_message.command(name="role")
 async def global_message_role(ctx):
     await get_channel_message_stats_roles(ctx.guild, ctx.guild.text_channels)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
 
 # Sous-groupe global_message. Stats en camembert des messages des personnes en mentions pour tous les channels.
 @global_message.command(name="vs")
 async def message_vs(ctx):
     if len(ctx.message.mentions) > 1 :
         await get_channel_item_vs_item(ctx.guild, ctx.guild.text_channels, users=ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
     
@@ -341,7 +345,7 @@ async def global_gif_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_message_stats(ctx.guild, ctx.guild.text_channels, [user], True)
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -351,14 +355,14 @@ async def global_gif_one(ctx, arg1):
 @global_gif.command(name="everyone")
 async def global_gif_everyone(ctx):
     await get_channel_message_stats(ctx.guild, ctx.guild.text_channels, ctx.guild.members, True)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
 
 # Sous-groupe global_gif. Stats cumulées pour tous les channels des personnes mentionnées.
 @global_gif.command(name="+")
 async def global_gif_plus(ctx, arg1):  
     if arg1[0:3] == "<@!" :
         await get_channel_message_stats(ctx.guild, ctx.guild.text_channels, ctx.message.mentions, True)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
         
@@ -366,14 +370,14 @@ async def global_gif_plus(ctx, arg1):
 @global_gif.command(name="role")
 async def global_gif_role(ctx):
     await get_channel_message_stats_roles(ctx.guild, ctx.guild.text_channels, True)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Sous-groupe global_gif. Stats en camembert des gifs des personnes en mentions pour le channel contextuels.
 @global_gif.command(name="vs")
 async def global_gif_vs(ctx):
     if len(ctx.message.mentions) > 1 :
         await get_channel_item_vs_item(ctx.guild, ctx.guild.text_channels, users=ctx.message.mentions, gif=True)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
     
@@ -381,7 +385,7 @@ async def global_gif_vs(ctx):
 @stats_global.command(name="vs", invoke_without_command=True)
 async def stats_global_vs(ctx):
     await get_channel_item_vs_item(ctx.guild, ctx.guild.text_channels, mvg=True)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
 
 # Nouveau sous-groupe global_q&a. Questions et réponses.
 @stats_global.group(name="q&a", invoke_without_command=True)
@@ -395,7 +399,7 @@ async def global_qa_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_question_answer(ctx.guild, ctx.guild.text_channels, [user])
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -405,14 +409,14 @@ async def global_qa_one(ctx, arg1):
 @global_qa.command(name="everyone")
 async def global_qa_everyone(ctx):
     await get_channel_question_answer(ctx.guild, ctx.guild.text_channels, ctx.guild.members)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Sous-groupe q&a. Questions et réponses cumulées pour les personnes mentionnées pour le channel contextuel.
 @global_qa.command(name="+")
 async def global_qa_plus(ctx, arg1):
     if arg1[0:3] == "<@!" : 
         await get_channel_question_answer(ctx.guild, ctx.guild.text_channels, ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
 
@@ -428,7 +432,7 @@ async def global_token_one(ctx, arg1):
         for user in ctx.message.mentions:
             if not user.bot:
                 await get_channel_token(ctx.guild, ctx.guild.text_channels, [user])
-                await ctx.send(file=discord.File(f"graph/MPD.png"))
+                await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
             else :
                 await ctx.send("Les statistiques des bots ne sont pas enregistrées.")
     else :
@@ -438,21 +442,21 @@ async def global_token_one(ctx, arg1):
 @global_token.command(name="everyone")
 async def global_token_everyone(ctx):
     await get_channel_token(ctx.guild, ctx.guild.text_channels, ctx.guild.members)
-    await ctx.send(file=discord.File(f"graph/MPD.png"))
+    await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     
 # Sous-groupe global_token. Comparaison de la moyenne de token pour les personnes mentionnées pour tous les channels.
 @global_token.command(name="vs")
 async def global_token_vs(ctx, arg1):
     if arg1[0:3] == "<@!" : 
         await get_channel_token(ctx.guild, ctx.guild.text_channels, ctx.message.mentions)
-        await ctx.send(file=discord.File(f"graph/MPD.png"))
+        await ctx.send(file=discord.File(f"graph/{ctx.guild.name}/MPD.png"))
     else :
         await stats(ctx)
-        
+
 # Groupe stats . Affiche le lien vers l'aide.
 @stats.command(name="help")
 async def stats_help(ctx):
-    await ctx.send("Lien git")
+    await ctx.send("https://github.com/Arthur095/statbotDiscord")
 
 ##########################
 
