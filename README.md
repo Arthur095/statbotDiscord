@@ -125,32 +125,32 @@ The plot also specifies the total of messages or gifs posted.
 Returns a bar plot with two fields : questions and answers.  
 We consider as one question every message containing at least one interrogation point. Only messages using discord integrated answer feature are counted as answer. 
 The plot also specifies the total of questions + answers posted. 
-```!stats qa + @firstperson @secondperson```
-[message_plot](./graph/example/stats_qa_+.png)
+```!stats qa + @firstperson @secondperson```  
+![message_plot](./graph/example/stats_qa_+.png)
 
 ### token
 Returns a bar plot of the average of token per message posted per user.
 Every string between two spaces is considered as one token, what means that an url is one token.
 The plot also specifies the total of tokens and messages posted.
-```!stats global token everyone```
+```!stats global token everyone```  
 [message_plot](link)
 
 ### vs
 Returns a pie chart of the number of messages compared to the number of gifs posted.
 The plot also specifies the total of messages + gifs posted.
-```!stats vs```
+```!stats vs```  
 [message_plot](link)
 
 ### message role | gif role
 Returns a pie chart of the total of messages + gifs posted per role. If there are too many role on the server, the plot may have lisibility issues.
 Also specifies the total of messages posted.
-```!stats message role```
+```!stats message role```  
 [message_plot](link)
 
 ### message vs | gif vs
 Returns a pie chart of the total of messages or gif posted per mentionned users. If there are too many users mentionned, the plot may have lisibility issues.
 Also specifies the total of messages posted by mentionned users.
-```!stats messages vs @Arthur.B @camille @Juliette```
+```!stats messages vs @Arthur.B @camille @Juliette```  
 [message_plot](link)
 
 # Contact
