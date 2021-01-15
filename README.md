@@ -103,7 +103,7 @@ Then you can add between one up to five optional arguments as possible answers.<
 
 There are also two other useful features :  
 
-The first one is meant to refresh the server stats of the server where the command is sent.  
+The first one is meant to refresh the stats of the server where the command is sent.  
 ```!stats refresh```  
   
 The last one send a link to this page in case you forget how it works.  
