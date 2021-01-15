@@ -78,7 +78,7 @@ Examples :
 
 ```!stats message everyone
 !stats q&a one
-!stats global +
+!stats global message +
 ```
 
 ### mentions
@@ -111,7 +111,7 @@ Do you want to know who is the biggest flooder between two people ?
 
 Do you need to vote to choose what game you're playing next ?
 
-```!stats poll 30 "What we play next ?" "Among Us" "PUBG" "Monster Hunter" "I go bed" "I'd better do my homeworks"```  
+```!stats poll 30 "What we play next ?" "Among Us" "PUBG" "Monster Hunter" "I'd better do my homeworks"```  
 
 ## Detail of each feature
 ### message gif
@@ -126,7 +126,7 @@ Returns a bar plot with two fields : questions and answers.
 We consider as one question every message containing at least one interrogation point. Only messages using discord integrated answer feature are counted as answer. 
 The plot also specifies the total of questions + answers posted. 
 ```!stats qa + @firstperson @secondperson```
-[message_plot](link)
+[message_plot](./graph/example/stats_qa_+.png)
 
 ### token
 Returns a bar plot of the average of token per message posted per user.
