@@ -36,14 +36,12 @@ Note that useable commands will be shown only in the second part of this section
 ### !stats
 
 The main command used for each bot feature. Every command only uses the data collected from the contextual channel (the channel from where the command was sent) unless the global option is used.  
-```!stats
-```
+```!stats```
 
 ### global
 
 This is the only option you can add next to the main command. It brings every text channel data together to make the statistics you want to show.  
-```!stats global
-```
+```!stats global```
 
 ### message gif q&a token vs poll
 
