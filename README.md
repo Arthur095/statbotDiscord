@@ -92,7 +92,15 @@ The 'vs' parameter does only work for message and gif.
 
 ### poll
 
-The poll feature is a bit different from others.
+<p align="justify">The poll feature is a bit different from others. It takes two parameters :  
+Time : The amount of second before the poll ends. Once the poll ends the plot will be send on text channel.  
+Question : The question being the subject of the poll.  
+If you don't use more arguments, the poll will consider the question answers being only yes or no.  
+Then you can add between one to five optional arguments as possible answers.</p>
+
+
+```!stats poll 60 "Question" "Answer1" "Answer2" "Answer3"```  
+![message_plot](./graph/example/stats_poll.png)  
 
 ## Full command examples
 
@@ -119,39 +127,42 @@ Do you need to vote to choose what game you're playing next ?
 <p align="justify">Returns a line plot based on message posted by date. If there are too many dates, the plot will skip dates to make ticks readable.
 Only discord integrated gifs are counted. A message containing external gif url will count as only one message.  
 The plot also specifies the total of messages or gifs posted.</p>
-```!stats global message everyone```    
+
+```!stats global message everyone```  
 ![message_plot](./graph/example/stats_global_message_everyone.png)  
 
 ### q&a
 <p align="justify">Returns a bar plot with two fields : questions and answers.  
 We consider as one question every message containing at least one interrogation point. Only messages using discord integrated answer feature are counted as answer. 
 The plot also specifies the total of questions + answers posted.</p>
-```!stats qa + @firstperson @secondperson```      
+
+```!stats qa + @firstperson @secondperson```  
 ![message_plot](./graph/example/stats_qa_+.png)  
 
 ### token
 <p align="justify">Returns a bar plot of the average of token per message posted per user.
 Every string between two spaces is considered as one token, what means that an url is one token.
 The plot also specifies the total of tokens and messages posted.</p>
+
 ```!stats global token everyone```  
 ![message_plot](./graph/example/stats_global_token_everyone.png)  
 
 ### vs
 Returns a pie chart of the number of messages compared to the number of gifs posted.
 The plot also specifies the total of messages + gifs posted.
-```!stats vs```   
+```!stats vs```  
 [message_plot](./graph/example/stats_vs.png)
 
 ### message role | gif role
 Returns a pie chart of the total of messages + gifs posted per role. If there are too many role on the server, the plot may have lisibility issues.
 Also specifies the total of messages posted.
-```!stats message role```   
+```!stats message role```  
 [message_plot](./graph/example/stats_message_role.png)
 
 ### message vs | gif vs
 Returns a pie chart of the total of messages or gif posted per mentionned users. If there are too many users mentionned, the plot may have lisibility issues.
 Also specifies the total of messages posted by mentionned users.
-```!stats messages vs @Arthur.B @camille @Juliette```   
+```!stats messages vs @Arthur.B @camille @Juliette```  
 [message_plot](./graph/example/stats_message_vs.png)
 
 # Contact
