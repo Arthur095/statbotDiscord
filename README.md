@@ -82,7 +82,7 @@ Examples :
 
 At the end of each command, you have to use one or multiple mentions (@user) to specify on which user the command will process !    
 
-You can use multiple mentions with the 'one' parameter, it will generate multiple plots.
+You can use multiple mentions with the 'one' parameter, it will generate multiple plots.  
 The 'everyone' parameter does not need any mention.  
 The '+' parameter needs at least two mentions or the results will be the same as using the 'one' parameter.  
 The 'vs' parameter does only work for message and gif.  
@@ -90,13 +90,13 @@ The 'vs' parameter does only work for message and gif.
 ### poll
 
 <p align="justify">The poll feature is a bit different from others. It takes two parameters :<br/><br/>
-Time : The amount of seconds before the poll ends. Once the poll ends the plot will be sent on text channel.<br/>
+Time : The amount of seconds before the poll ends. Once the poll ends the plot will be sent on the contextual text channel.<br/>
 Question : The question being the subject of the poll.<br/><br/>
 If you don't use more arguments, the poll will consider the question answers being either yes or no.<br/>
 Then you can add between one up to five optional arguments as possible answers.</p>
 
 
-```!stats poll 60 "Question" "Answer1" "Answer2" "Answer3" "Answer4"```  
+```!stats poll 60 "How do you feel today ?" "Answer1" "Answer2" "Answer3" "Answer4"```  
 ![message_plot](./graph/example/stats_poll.png)  
 
 ## other
@@ -106,18 +106,18 @@ There are also two other useful features :
 The first one is meant to refresh the stats of the server where the command is sent.  
 ```!stats refresh```  
   
-The last one send a link to this page in case you forget how it works.  
+The last one sends a link to this page in case you forget how it works.  
 ```!stats help```
 
 ## Full command examples
 
 Now you understand how the commands set works you'll be able to find what fills your needs !
 
-Do you want to know the total of messages posted on your server ? 
+Do you want to know the total of messages posted on your server ?
 
 ```!stats global message everyone```  
 
-Do you need to know how many gifs you posted today to realize if you are boring people ?
+Do you need to know how many gifs you posted today to realize if you are a fun or boring person ?
 
 ```!stats gif one @myname```  
 
