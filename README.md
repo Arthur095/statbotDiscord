@@ -1,5 +1,5 @@
 # A bot made to size your speech
-<p style="text-align: justify;">This project is made as part of the final evaluation of python classes for the master 2 NLP Inalco 2020-2021. The goal of this project is to learn the using and implementation of complex api using python and linking it with NLP tasks. So we decided to make some statistics to help people having troubles with (for instance people thinking that among us impostors are not random).</p>
+<p align="justify">This project is made as part of the final evaluation of python classes for the master 2 NLP Inalco 2020-2021. The goal of this project is to learn the using and implementation of complex api using python and linking it with NLP tasks. So we decided to make some statistics to help people having troubles with (for instance people thinking that among us impostors are not random).</p>
 
 # Installation 
 ### First
@@ -24,7 +24,7 @@ However, you'd better read what commands you can use before...</p>
 # How it works
 ### At start
 
-<p style="text-align: justify;">When the bot is started, it will automatically save the whole chat history of every channel of every server it has access to. This operation can take some time considering the number of messages posted since the guild creation and the amount of guilds the bot manages. It will create a csv file for each channel in the ./guild/"guild_name" directory. The bot is set to refresh files every 12 hours or after being restarted. By default, the script logs basic events, warning and errors into a log file located at the root. To prevent it from creating a log file that could take some disk space, you can remove the "Logging" part inside 'bot.py'.</p>
+<p align="justify">When the bot is started, it will automatically save the whole chat history of every channel of every server it has access to. This operation can take some time considering the number of messages posted since the guild creation and the amount of guilds the bot manages. It will create a csv file for each channel in the ./guild/"guild_name" directory. The bot is set to refresh files every 12 hours or after being restarted. By default, the script logs basic events, warning and errors into a log file located at the root. To prevent it from creating a log file that could take some disk space, you can remove the "Logging" part inside 'bot.py'.</p>
 
 ### At the end
 
@@ -116,42 +116,42 @@ Do you need to vote to choose what game you're playing next ?
 
 ## Detail of each feature
 ### message gif
-<p style="text-align: justify;">Returns a line plot based on message posted by date. If there are too many dates, the plot will skip dates to make ticks readable.
+<p align="justify">Returns a line plot based on message posted by date. If there are too many dates, the plot will skip dates to make ticks readable.
 Only discord integrated gifs are counted. A message containing external gif url will count as only one message.  
 The plot also specifies the total of messages or gifs posted.</p>
 ```!stats global message everyone```    
 ![message_plot](./graph/example/stats_global_message_everyone.png)  
 
 ### q&a
-<p style="text-align: justify;">Returns a bar plot with two fields : questions and answers.  
+<p align="justify">Returns a bar plot with two fields : questions and answers.  
 We consider as one question every message containing at least one interrogation point. Only messages using discord integrated answer feature are counted as answer. 
 The plot also specifies the total of questions + answers posted.</p>
-```!stats qa + @firstperson @secondperson```    
+```!stats qa + @firstperson @secondperson```      
 ![message_plot](./graph/example/stats_qa_+.png)  
 
 ### token
-<p style="text-align: justify;">Returns a bar plot of the average of token per message posted per user.
+<p align="justify">Returns a bar plot of the average of token per message posted per user.
 Every string between two spaces is considered as one token, what means that an url is one token.
 The plot also specifies the total of tokens and messages posted.</p>
-```!stats global token everyone```    
+```!stats global token everyone```  
 ![message_plot](./graph/example/stats_global_token_everyone.png)  
 
 ### vs
 Returns a pie chart of the number of messages compared to the number of gifs posted.
 The plot also specifies the total of messages + gifs posted.
-```!stats vs```  
-[message_plot](./graph/example/stats_vs.png)  
+```!stats vs```   
+[message_plot](./graph/example/stats_vs.png)
 
 ### message role | gif role
 Returns a pie chart of the total of messages + gifs posted per role. If there are too many role on the server, the plot may have lisibility issues.
 Also specifies the total of messages posted.
-```!stats message role```  
+```!stats message role```   
 [message_plot](./graph/example/stats_message_role.png)
 
 ### message vs | gif vs
 Returns a pie chart of the total of messages or gif posted per mentionned users. If there are too many users mentionned, the plot may have lisibility issues.
 Also specifies the total of messages posted by mentionned users.
-```!stats messages vs @Arthur.B @camille @Juliette```  
+```!stats messages vs @Arthur.B @camille @Juliette```   
 [message_plot](./graph/example/stats_message_vs.png)
 
 # Contact
