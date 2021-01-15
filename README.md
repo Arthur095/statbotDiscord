@@ -87,6 +87,26 @@ The 'everyone' parameter does not need any mention.
 The '+' parameter needs at least two mentions or the results will be the same as using the 'one' parameter.  
 The 'vs' parameter does only work for message and gif.  
 
+## Full command examples
+
+Now you understand how the commands set works you'll be able to find what fills your needs !
+
+Do you want to know the total of messages posted on your server ?
+
+```!stats global message everyone```  
+
+Do you need to know how many gifs you posted today to realize if you are a fun or boring person ?
+
+```!stats gif one @myname```  
+
+Do you want to know who is the biggest flooder between two people ?
+
+```!stats message vs @firstname @secondname ```  
+
+Do you need to vote to choose what game you're playing next ?
+
+```!stats poll 30 "What we play next ?" "Among Us" "PUBG" "Monster Hunter" "I'd better do my homeworks"```  
+
 ### poll
 
 <p align="justify">The poll feature is a bit different from others. It takes two parameters :<br/><br/>
@@ -108,26 +128,6 @@ The first one is meant to refresh the stats of the server where the command is s
   
 The last one sends a link to this page in case you forget how it works.  
 ```!stats help```
-
-## Full command examples
-
-Now you understand how the commands set works you'll be able to find what fills your needs !
-
-Do you want to know the total of messages posted on your server ?
-
-```!stats global message everyone```  
-
-Do you need to know how many gifs you posted today to realize if you are a fun or boring person ?
-
-```!stats gif one @myname```  
-
-Do you want to know who is the biggest flooder between two people ?
-
-```!stats message vs @firstname @secondname ```  
-
-Do you need to vote to choose what game you're playing next ?
-
-```!stats poll 30 "What we play next ?" "Among Us" "PUBG" "Monster Hunter" "I'd better do my homeworks"```  
 
 ## Detail of each feature
 ### message gif
