@@ -19,6 +19,7 @@ pip install asyncio;
 ### Then
 
 <p align="justify">Once you're done with packages, you can download the last release and unzip it to the desired directory. Then you must edit the '.env' file located in the root directory of the unziped content and use your bot token to replace the field "YOUR_TOKEN". You're now ready to launch the bot through the command line !<br/>
+```python3 bot.py```<br/>
 However, you'd better read what commands you can use before...</p>
 
 # How it works
@@ -169,7 +170,7 @@ Also specifies the total of messages posted.
 ### message vs | gif vs
 Returns a pie chart of the total of messages or gif posted per mentionned users. If there are too many users mentionned, the plot may have lisibility issues.
 Also specifies the total of messages posted by mentionned users.  
-```!stats messages vs @Arthur.B @camille @Juliette```  
+```!stats message vs @Arthur.B @camille @Juliette```  
 ![message_plot](./graph/example/stats_message_vs.png)
 
 # Contact
