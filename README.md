@@ -18,7 +18,7 @@ pip install asyncio;
 
 ### Then
 
-<p align="justify">Once you're done with packages, you can download the last release and unzip it to the desired directory. Then you must edit the '.env' file located in the root directory of the unziped content and use your bot token to replace the field "YOUR_TOKEN". You're now ready to launch the bot through the command line !  
+<p align="justify">Once you're done with packages, you can download the last release and unzip it to the desired directory. Then you must edit the '.env' file located in the root directory of the unziped content and use your bot token to replace the field "YOUR_TOKEN". You're now ready to launch the bot through the command line !<br/>
 However, you'd better read what commands you can use before...</p>
 
 # How it works
@@ -92,14 +92,24 @@ The 'vs' parameter does only work for message and gif.
 ### poll
 
 <p align="justify">The poll feature is a bit different from others. It takes two parameters :<br/><br/>
-Time : The amount of seconds before the poll ends. Once the poll ends the plot will be send on text channel.<br/>
+Time : The amount of seconds before the poll ends. Once the poll ends the plot will be sent on text channel.<br/>
 Question : The question being the subject of the poll.<br/><br/>
 If you don't use more arguments, the poll will consider the question answers being either yes or no.<br/>
-Then you can add between one to five optional arguments as possible answers.</p>
+Then you can add between one up to five optional arguments as possible answers.</p>
 
 
 ```!stats poll 60 "Question" "Answer1" "Answer2" "Answer3" "Answer4"```  
 ![message_plot](./graph/example/stats_poll.png)  
+
+## other
+
+There are also two other useful features :  
+
+The first one is meant to refresh the server stats of the server where the command is sent.  
+```!stats refresh```  
+  
+The last one send a link to this page in case you forget how it works.  
+```!stats help```
 
 ## Full command examples
 
@@ -123,7 +133,7 @@ Do you need to vote to choose what game you're playing next ?
 
 ## Detail of each feature
 ### message gif
-<p align="justify">Returns a line plot based on message posted by date. If there are too many dates, the plot will skip dates to make ticks readable.
+<p align="justify">Returns a line plot based on messages posted by date. If there are too many dates, the plot will skip dates to make ticks readable.
 Only discord integrated gifs are counted. A message containing external gif url will count as only one message.  
 The plot also specifies the total of messages or gifs posted.</p>
 
@@ -139,7 +149,7 @@ The plot also specifies the total of questions + answers posted.</p>
 ![message_plot](./graph/example/stats_qa_+.png)  
 
 ### token
-<p align="justify">Returns a bar plot of the average of token per message posted per user.
+<p align="justify">Returns a bar plot of the average of tokens per message posted per user.
 Every string between two spaces is considered as one token, what means that an url is one token.
 The plot also specifies the total of tokens and messages posted.</p>
 
