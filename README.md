@@ -20,10 +20,12 @@ pip install asyncio;
 
 <p align="justify">Once you're done with packages, you can download the last release and unzip it to the desired directory. Then you must edit the '.env' file located in the root directory of the unziped content and use your bot token to replace the field "YOUR_TOKEN".<br/>
 You're now ready to launch the bot through the command line !<br/>
+
 ```bash
-python3 bot.py ```  
-<br/>
-However, you'd better read what commands you can use before...</p>
+python3 bot.py
+```
+
+<br/>However, you'd better read what commands you can use before...</p>
 
 # How it works
 ### At start
