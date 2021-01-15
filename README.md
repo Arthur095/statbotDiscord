@@ -4,7 +4,7 @@
 # Installation 
 ### First
 
-This bot requires few python's external modules in order to work. We recommend using pip for a simple and fast installation.
+This bot requires python 3.0+ and few python's external modules in order to work. We recommend using pip for a simple and fast installation.
 You can copy paste the following lines into your command line or make the installation by yourself.  
 
 ```bash
