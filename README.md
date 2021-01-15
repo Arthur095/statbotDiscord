@@ -84,22 +84,21 @@ Examples :
 
 At the end of each command, you have to use one or multiple mentions (@user) to specify on which user the command will process !    
 
-You can use multiple mentions with the 'one' parameter, it will generate multiple plot.  
-
+You can use multiple mentions with the 'one' parameter, it will generate multiple plots.
 The 'everyone' parameter does not need any mention.  
 The '+' parameter needs at least two mentions or the results will be the same as using the 'one' parameter.  
 The 'vs' parameter does only work for message and gif.  
 
 ### poll
 
-<p align="justify">The poll feature is a bit different from others. It takes two parameters :<br/>
-Time : The amount of second before the poll ends. Once the poll ends the plot will be send on text channel.<br/>
-Question : The question being the subject of the poll.<br/>
-If you don't use more arguments, the poll will consider the question answers being only yes or no.<br/>
+<p align="justify">The poll feature is a bit different from others. It takes two parameters :<br/><br/>
+Time : The amount of seconds before the poll ends. Once the poll ends the plot will be send on text channel.<br/>
+Question : The question being the subject of the poll.<br/><br/>
+If you don't use more arguments, the poll will consider the question answers being either yes or no.<br/>
 Then you can add between one to five optional arguments as possible answers.</p>
 
 
-```!stats poll 60 "Question" "Answer1" "Answer2" "Answer3"```  
+```!stats poll 60 "Question" "Answer1" "Answer2" "Answer3" "Answer4"```  
 ![message_plot](./graph/example/stats_poll.png)  
 
 ## Full command examples
@@ -149,21 +148,21 @@ The plot also specifies the total of tokens and messages posted.</p>
 
 ### vs
 Returns a pie chart of the number of messages compared to the number of gifs posted.
-The plot also specifies the total of messages + gifs posted.
+The plot also specifies the total of messages + gifs posted.  
 ```!stats vs```  
-[message_plot](./graph/example/stats_vs.png)
+![message_plot](./graph/example/stats_vs.png)
 
 ### message role | gif role
 Returns a pie chart of the total of messages + gifs posted per role. If there are too many role on the server, the plot may have lisibility issues.
-Also specifies the total of messages posted.
+Also specifies the total of messages posted.  
 ```!stats message role```  
-[message_plot](./graph/example/stats_message_role.png)
+![message_plot](./graph/example/stats_message_role.png)
 
 ### message vs | gif vs
 Returns a pie chart of the total of messages or gif posted per mentionned users. If there are too many users mentionned, the plot may have lisibility issues.
-Also specifies the total of messages posted by mentionned users.
+Also specifies the total of messages posted by mentionned users.  
 ```!stats messages vs @Arthur.B @camille @Juliette```  
-[message_plot](./graph/example/stats_message_vs.png)
+![message_plot](./graph/example/stats_message_vs.png)
 
 # Contact
 discord : Arthur.B#2688
