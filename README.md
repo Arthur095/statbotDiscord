@@ -92,10 +92,10 @@ The 'vs' parameter does only work for message and gif.
 
 ### poll
 
-<p align="justify">The poll feature is a bit different from others. It takes two parameters :  
-Time : The amount of second before the poll ends. Once the poll ends the plot will be send on text channel.  
-Question : The question being the subject of the poll.  
-If you don't use more arguments, the poll will consider the question answers being only yes or no.  
+<p align="justify">The poll feature is a bit different from others. It takes two parameters :<br/>
+Time : The amount of second before the poll ends. Once the poll ends the plot will be send on text channel.<br/>
+Question : The question being the subject of the poll.<br/>
+If you don't use more arguments, the poll will consider the question answers being only yes or no.<br/>
 Then you can add between one to five optional arguments as possible answers.</p>
 
 
@@ -136,7 +136,7 @@ The plot also specifies the total of messages or gifs posted.</p>
 We consider as one question every message containing at least one interrogation point. Only messages using discord integrated answer feature are counted as answer. 
 The plot also specifies the total of questions + answers posted.</p>
 
-```!stats qa + @firstperson @secondperson```  
+```!stats q&a + @firstperson @secondperson```  
 ![message_plot](./graph/example/stats_qa_+.png)  
 
 ### token
