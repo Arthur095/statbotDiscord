@@ -1,5 +1,5 @@
 # A bot made to size your speech
-<p align="justify">This project is made as part of the final evaluation of python classes for the master 2 NLP Inalco 2020-2021. The goal of this project is to learn the using and implementation of complex api using python and linking it with NLP tasks. So we decided to make some statistics to help people having troubles with (for instance people thinking that among us impostors are not random).</p>
+<p align="justify">This project is made as part of the final evaluation of python classes for the master 2 NLP Inalco 2020-2021. The goal of this project is to learn the use and implementation of complex api using python and linking it with NLP tasks. So we decided to make some statistics to help people having troubles with (for instance people thinking that among us impostors are not random).</p>
 
 # Installation 
 ### First
