@@ -471,5 +471,3 @@ async def stats_refresh(ctx):
 
 if __name__ == '__main__':
     bot.run(TOKEN)
-
-#TRIER LES DATES POUR message by date.
